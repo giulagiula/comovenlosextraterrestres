@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cómo ven los extraterrestres</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <span class="about" onclick="alert('hecho para dekstop, funciona bien en pantallas de 1288x905 (en otras no sé), habilitar pop-ups.')">
+        ???????</span>
+    <a href="https://planet.giula.xyz" class="credit" target="_blank">x giula</a>
+    <a href="https://instagram.com/giula_giula" class="ig" target="_blank">@</a>
+    <img src="images/comovenlosextraterrestres-01.png" alt="title" class="title">
+    <span class="external-credits" onclick="alert('música &quot;The World Moves Quicker Than I Had Ever Realised and Sometimes It\'s Unkind&quot; x dylan henner, video + fotos x mi.')">
+        credits</span>
+
+    <div class="btn start" id="play">cómo ven?</div>
+    <video id="video" src="video/asiven_audio.mp4" loop playsinline></video>
+    
+    <details id="escala">
+            <summary>꩜escala temporal</summary>
+            <div class="content">
+                <div class="content-bg"></div>
+                <span class="essay-title" title="aliens land on earth. they're little runts, as alien races go. but they metabolize like there's no tomorrow. they zip around like swarms of gnats, too fast to see - so fast that earth seconds seem to them like years. to them, humans are nothing but sculptures of immobile meat. the foreigners try to communicate, but there's no reply. finding no signs of intelligent life, they tuck into the frozen statues and start curing them like so much jerky, for the long ride home.">
+                    <p>"aliens aterrizan en la tierra. son pequeñines para lo que es una raza alienígena. pero metabolizan como si no hubiera un mañana. se mueven a toda velocidad, como nubes de mosquitos, demasiado rápido para poder verlos, tan rápido que segundos terrestres les parecen años.<br>
+                    para ellos, los humanos no son más que esculturas de carne inmóvil. los extranjeros intentan comunicarse, pero no obtienen respuesta. al no encontrar señales de vida inteligente, se abalanzan sobre las estatuas congeladas y empiezan a curarlas como si fueran charqui, para el largo viaje de regreso."</p>
+                </span>
+            </div>
+            <p class="details-credit">"neela mehta" @ the overstory, richard powers</p>
+            <img src="images/IMG_3822.jpeg" class="escala-img">
+    </details>
+
+    <details id="nosotros">
+            <summary>nosotros para ellos</summary>
+            <div class="content-nosotros">
+                <div class="content-bg-2"></div>
+                <div class="nosotros-item">
+                    <p class="nosotros-num nosotros-num-1">1</p>
+                    <img src="images/nosotrosparaellos.jpg" class="nosotros-img">
+                </div>
+                <div class="nosotros-item">
+                    <p class="nosotros-num nosotros-num-2">2</p>
+                    <img src="images/nosotrosparaellos2.jpg" class="nosotros-img">
+                </div>
+                <div class="nosotros-item">
+                    <p class="nosotros-num nosotros-num-3">3</p>
+                    <img src="images/nosotrosparaellos3.jpeg" class="nosotros-img">
+                </div>
+                <div class="nosotros-item">
+                    <p class="nosotros-num nosotros-num-4">4</p>
+                    <img src="images/nosotrosparaellos4.jpeg" class="nosotros-img">
+                </div>
+            </div>
+    </details>
+
+    <div id="invasion">invasión!</div>
+    <div class="btn" id="shuffle">devolver el planeta</div>
+
+        <script>
+            function startSite() {
+                document.getElementById('video').play();
+                const btn = document.getElementById('play');
+                btn.textContent = 'me mareé';
+                btn.classList.remove('start');
+                btn.classList.add('stop');
+                btn.onclick = stopSite;
+            }
+
+            function stopSite() {
+                document.getElementById('video').pause();
+                const btn = document.getElementById('play');
+                btn.textContent = 'cómo ven?';
+                btn.classList.remove('stop');
+                btn.classList.add('start');
+                btn.onclick = startSite;
+            }
+            document.getElementById('play').onclick = startSite;
+
+            document.getElementById('shuffle').onclick = function() {
+                [...document.querySelectorAll('*')].forEach(el => {
+                    if (el.children.length === 0) {
+                        el.style.position = 'absolute';
+                        el.style.left = Math.random() * window.innerWidth + 'px';
+                        el.style.top = Math.random() * window.innerHeight + 'px';
+            }
+        });
+    };
+            let popups = [];
+
+            document.getElementById('invasion').onclick = function() {
+                if(popups.length > 0) {
+                    popups.forEach(p => p.close());
+                    popups = [];
+                    document.getElementById('invasion').textContent = 'invasión!';
+                } else {
+                    let w = 400;
+                    let h = 225;
+                    let totalHeight = 2 * h + 10;
+                    let row1Top = (window.screen.height - totalHeight) / 2 + window.screen.height * 0.07;
+                    let row2Top = row1Top + h + 10;
+                    let startLeft = (window.screen.width - (6 * w + 5 * 250)) / 2;
+                    let startLeft2 = (window.screen.width - (3 * w + 2 * 250)) / 2;
+
+                    document.getElementById('invasion').textContent = 'sálvenme!!';
+                
+                    setTimeout(function(){ popups.push(window.open("nos.html", "_blank", `width=${w},height=${h},left=50,top=${row1Top}`)) }, 0);
+                    setTimeout(function(){ popups.push(window.open("invaden.html", "_blank", `width=${w},height=${h},left=300,top=${row1Top}`)) }, 300);
+                    setTimeout(function(){ popups.push(window.open("no.html", "_blank", `width=${w},height=${h},left=550,top=${row1Top}`)) }, 600);
+                    setTimeout(function(){ popups.push(window.open("podemos.html", "_blank", `width=${w},height=${h},left=800,top=${row1Top}`)) }, 900);
+                    setTimeout(function(){ popups.push(window.open("hacer.html", "_blank", `width=${w},height=${h},left=1050,top=${row1Top}`)) }, 1200);
+                    setTimeout(function(){ popups.push(window.open("nada.html", "_blank", `width=${w},height=${h},left=1300,top=${row1Top}`)) }, 1500);
+
+                    setTimeout(function(){ popups.push(window.open("mas.html", "_blank", `width=${w},height=${h},left=150,top=${row2Top}`)) }, 1800);
+                    setTimeout(function(){ popups.push(window.open("que.html", "_blank", `width=${w},height=${h},left=400,top=${row2Top}`)) }, 2100);
+                    setTimeout(function(){ popups.push(window.open("devolver.html", "_blank", `width=600,height=425,left=650,top=${row2Top}`)) }, 2400);
+                    setTimeout(function(){ popups.push(window.open("el.html", "_blank", `width=600,height=425,left=900,top=${row2Top}`)) }, 2700);
+                    setTimeout(function(){ popups.push(window.open("planeta.html", "_blank", `width=600,height=425,left=1150,top=${row2Top}`)) }, 3000);
+                    }
+                }
+
+    </script>
+    
+</body>
+</html>
